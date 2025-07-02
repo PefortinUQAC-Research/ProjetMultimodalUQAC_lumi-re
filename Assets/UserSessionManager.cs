@@ -53,7 +53,7 @@ public class UserSessionManager : MonoBehaviour
     /// </summary>
     public void StartSession()
     {
-        VibrationType = PossibleVibrations[UnityEngine.Random.Range(0, PossibleVibrations.Length)]; // Sélectionne un type de vibration aléatoire
+        VibrationType = PossibleVibrations[0]; // Sélectionne un type de vibration aléatoire
 
         // Configure les retours haptiques pour tous les objets VRHaptics
         VRHaptics[] haptics = FindObjectsByType<VRHaptics>(FindObjectsInactive.Include, FindObjectsSortMode.None);
