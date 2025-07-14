@@ -313,8 +313,20 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 756192407}
+    - target: {fileID: 5033801203051696737, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5663893676086941514, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_SmoothTurnEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232745470614056083, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8534966689092540292, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8534966689092540292, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -338,16 +350,10 @@ PrefabInstance:
       addedObject: {fileID: 441087510}
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1481658987}
+      addedObject: {fileID: 1481659000}
     - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1481658992}
-    - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1481658993}
-    - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1481658994}
+      addedObject: {fileID: 1481659006}
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
 --- !u!1 &441087507 stripped
 GameObject:
@@ -383,7 +389,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441087507}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efac818a95ea4d4469a9742ace74ad72, type: 3}
   m_Name: 
@@ -764,7 +770,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 441087506}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1481658987
+--- !u!114 &1481659000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -773,34 +779,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1481658985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 937b00692ea309847a587390cbe45079, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cffcca4534f7224191177dc12a21666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: {fileID: 0}
-  enableScript: 1
-  caramelDanced: 1
-  postExposureMode: 0
-  fixedPostExposure: 0.5
-  startPostExposure: 0
-  endPostExposure: 1
-  contrastMode: 0
-  fixedContrast: 0
-  startContrast: -50
-  endContrast: 50
-  colorFilterMode: 0
-  fixedColorFilter: {r: 1, g: 1, b: 1, a: 1}
-  startColorFilter: {r: 0, g: 0, b: 0, a: 1}
-  endColorFilter: {r: 1, g: 1, b: 1, a: 1}
-  hueShiftMode: 0
-  fixedHueShift: 0
-  startHueShift: -90
-  endHueShift: 90
-  saturationMode: 0
-  fixedSaturation: 0
-  startSaturation: -50
-  endSaturation: 50
-  duration: 0.7
---- !u!114 &1481658992
+  mainSpeed: 10
+  shiftAdd: 25
+  camSens: 0.2
+--- !u!114 &1481659006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -809,54 +794,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1481658985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3bcb4a572c6a44994f9271e014a8bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 01d5c70dd6b46b242be116718854ef6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   volume: {fileID: 0}
-  enableScript: 1
-  mode: 1
-  fixedDistance: 0.1
-  minDistance: 1
-  maxDistance: 0
-  duration: 0.1
---- !u!114 &1481658993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481658985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8afde973ed551f047bd151210a909704, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 0}
-  enableScript: 1
-  mode: 1
-  fixedGammaValue: 0.61
-  minGammaValue: -0.75
-  maxGammaValue: 0.41
-  duration: 0.3
---- !u!114 &1481658994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481658985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847898b158625964d84948a0aa338d5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volume: {fileID: 0}
-  enableScript: 1
-  mode: 1
-  fixedTemperature: 0
-  minTemperature: -100
-  maxTemperature: 100
-  duration: 1
+  vrCamera: {fileID: 0}
+  activerScript: 1
+  gainFaible: 1
+  "gainElev\xE9": 2
+  vitesseAugmentationGain: 3
+  vitesseDiminutionGain: 1
+  couleurGainFaible: {r: 1, g: 1, b: 1, a: 1}
+  "couleurGainElev\xE9": {r: 1, g: 1, b: 1, a: 1}
+  seuilMouvement: 0.1
+  multiplicateurMouvement: 10
+  intervalleEchantillonnage: 0.1
+  showDebugInfo: 0
 --- !u!1 &1878400851
 GameObject:
   m_ObjectHideFlags: 0
