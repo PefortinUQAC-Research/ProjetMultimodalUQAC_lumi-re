@@ -4,8 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="add script changer for vr headset movement">
+    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="Code buzzer + jecrase les modifs de andrew pour copier coller apres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/.cmake/api/v1/reply/index-2025-07-17T18-04-30-0700.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/configure_fingerprint.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.utmp/RelWithDebInfo/6mx2f2h4/arm64-v8a/configure_fingerprint.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BasicScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BasicScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/BlackScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/BlackScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LobbyScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Project Configuration/BasicScene.scenetemplate" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Project Configuration/BasicScene.scenetemplate" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/Project Configuration/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/Project Configuration/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,21 +46,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "script__changer",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;script__changer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,6 +78,7 @@
       <updated>1751470553065</updated>
       <workItem from="1751470554762" duration="330000" />
       <workItem from="1752512351465" duration="1617000" />
+      <workItem from="1752862950308" duration="970000" />
     </task>
     <task id="LOCAL-00001" summary="add script changer on the main camera">
       <option name="closed" value="true" />
@@ -84,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752512587009</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Code buzzer + jecrase les modifs de andrew pour copier coller apres">
+      <option name="closed" value="true" />
+      <created>1752863270752</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1752863270752</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +124,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add script changer on the main camera" />
     <MESSAGE value="add script changer for vr headset movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="add script changer for vr headset movement" />
+    <MESSAGE value="Code buzzer + jecrase les modifs de andrew pour copier coller apres" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code buzzer + jecrase les modifs de andrew pour copier coller apres" />
   </component>
 </project>
