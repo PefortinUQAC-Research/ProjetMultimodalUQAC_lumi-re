@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="Code buzzer + jecrase les modifs de andrew pour copier coller apres">
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="update ui interraction" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +25,9 @@
     &quot;accountId&quot;: &quot;2b6e8e4e-dd4e-4fb1-b328-fc28ca3259ea&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -60,6 +59,7 @@
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="" />
@@ -95,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752863270752</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update ui interraction">
+      <option name="closed" value="true" />
+      <created>1753123008843</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753123008843</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +124,7 @@
     <MESSAGE value="add script changer on the main camera" />
     <MESSAGE value="add script changer for vr headset movement" />
     <MESSAGE value="Code buzzer + jecrase les modifs de andrew pour copier coller apres" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code buzzer + jecrase les modifs de andrew pour copier coller apres" />
+    <MESSAGE value="update ui interraction" />
+    <option name="LAST_COMMIT_MESSAGE" value="update ui interraction" />
   </component>
 </project>
