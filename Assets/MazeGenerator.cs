@@ -26,10 +26,13 @@ public class MazeGenerator : MonoBehaviour
     private float _scaleFactorZ = 2f; // Facteur d'échelle pour l'axe Z
 
     [SerializeField]
-    private GameObject questionnairePrefab; // Préfabriqué pour les questionnaires
+    private GameObject startCubePrefab; // Préfabriqué pour le cube de début
 
     [SerializeField]
-    private GameObject TextBoxPrefab; // Préfabriqué pour les boîtes de texte
+    private GameObject middleCubePrefab; // Préfabriqué pour le cube du milieu
+
+    [SerializeField]
+    private GameObject endCubePrefab; // Préfabriqué pour le cube de fin
 
     private MazeCell[,] _mazeGrid; // Grille contenant les cellules du labyrinthe
 
@@ -70,79 +73,34 @@ public class MazeGenerator : MonoBehaviour
 
         startCell.SetCellType(MazeCell.CellType.Start);
         startCell.RemoveWall(MazeCell.Direction.Left);
-        SpawnGameObjectAboveCell(startCell, questionnairePrefab);
-        SpawnGameObjectAboveCell(startCell, TextBoxPrefab);
+        SpawnCubeAboveCell(startCell, startCubePrefab);
 
         endCell.SetCellType(MazeCell.CellType.End);
         endCell.RemoveWall(MazeCell.Direction.Right);
-        GameObject obj = SpawnGameObjectAboveCell(endCell, questionnairePrefab);
-        if (obj == null)
-        {
-            Debug.LogError("Impossible de placer le préfabriqué du questionnaire au-dessus de la cellule de fin.");
-            return;
-        }
-        obj.GetComponentInChildren<QuestionnaireManager>().IsLastQuestionnaire = true;
-        SpawnGameObjectAboveCell(endCell, TextBoxPrefab);
+        SpawnCubeAboveCell(endCell, endCubePrefab);
 
-        // Détermine le chemin principal et place un questionnaire au milieu
+        // Détermine le chemin principal et place un cube au milieu
         List<MazeCell> path = FindPath(startCell, endCell);
         if (path != null && path.Count > 2)
         {
             MazeCell middleCell = path[path.Count / 2];
-            SpawnGameObjectAboveCell(middleCell, questionnairePrefab);
+            SpawnCubeAboveCell(middleCell, middleCubePrefab);
         }
     }
 
     /// <summary>
-    /// Place un objet au-dessus d'une cellule spécifique.
+    /// Place un cube au-dessus d'une cellule spécifique.
     /// </summary>
-    private GameObject SpawnGameObjectAboveCell(MazeCell cell, GameObject prefab)
+    private GameObject SpawnCubeAboveCell(MazeCell cell, GameObject cubePrefab)
     {
-        GameObject obj = null;
-        if (prefab == null || cell == null)
+        if (cubePrefab == null || cell == null)
             return null;
-        if (prefab == questionnairePrefab)
-        {
-            Vector3 spawnPosition = cell.transform.position + new Vector3(0, 1.5f, 0); // 1.5 unités au-dessus de la cellule
-            obj = Instantiate(questionnairePrefab, spawnPosition, Quaternion.identity);
-        }
-        else if (prefab == TextBoxPrefab)
-        {
-            TextBoxController textBoxController;
-            if (cell._currentWallType == MazeCell.WallType.Start)
-            {
-                Debug.Log("Cellule de départ");
-                Vector3 spawnPosition = cell.transform.position + new Vector3(-1.5f, 1.5f, 0); // 1.5 unités au-dessus de la cellule
-                obj = Instantiate(TextBoxPrefab, spawnPosition, Quaternion.identity);
-                textBoxController = obj.GetComponent<TextBoxController>();
-                textBoxController.topText.text = "Bienvenue dans le Labyrinthe ! Vous devrez répondre à un questionnaire au début, au milieu et à la fin du labyrinthe.\n\n Vous pouvez choisir le type de mur que vous souhaitez avant de commencer.";
-                textBoxController.button1Text.text = "Noir et Blanc";
-                textBoxController.button3Text.text = "RGB";
-                textBoxController.button2.gameObject.SetActive(false);
-                textBoxController.action1.actionType = TextBoxController.ButtonActionType.ChangeMaterial;
-                textBoxController.action1.parameter = MazeCell.WallType.BlackAndWhite.ToString();
-                textBoxController.action3.actionType = TextBoxController.ButtonActionType.ChangeMaterial;
-                textBoxController.action3.parameter = MazeCell.WallType.RGB.ToString();
-            }
-            else if (cell._currentWallType == MazeCell.WallType.End)
-            {
-                Debug.Log("Cellule de fin");
-                Vector3 spawnPosition = cell.transform.position + new Vector3(1.5f, 1.5f, 0); // 1.5 unités au-dessus de la cellule
-                obj = Instantiate(TextBoxPrefab, spawnPosition, Quaternion.identity);
-                textBoxController = obj.GetComponent<TextBoxController>();
-                textBoxController.topText.text = "Félicitations ! Vous avez atteint la fin du labyrinthe.\n\n Vous pouvez choisir de faire une pause, de continuer avec le prochain labyrinthe ou de quitter le jeu.";
-                textBoxController.button1Text.text = "Faire une pause";
-                textBoxController.button2Text.text = "Continuer";
-                textBoxController.button3Text.text = "Quitter";
-                textBoxController.action1.actionType = TextBoxController.ButtonActionType.Pause;
-                textBoxController.action1.parameter = "Pause";
-                textBoxController.action2.actionType = TextBoxController.ButtonActionType.ChangeScene;
-                textBoxController.action2.parameter = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-                textBoxController.action3.actionType = TextBoxController.ButtonActionType.Quit;
-                textBoxController.action3.parameter = "Quit";
-            }
-        }
-        return obj;
+
+        // Gère le spawn XYZ
+        Vector3 spawnPosition = cell.transform.position + new Vector3(0, 0.5f, 0); // 1.5 unités au-dessus de la cellule
+        GameObject cube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
+        
+        return cube;
     }
 
     /// <summary>

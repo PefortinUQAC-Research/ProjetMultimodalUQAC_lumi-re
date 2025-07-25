@@ -12,6 +12,9 @@ public class SSQFormController : MonoBehaviour
     [Header("Groupes de questions")]
     public ToggleGroup[] questionGroups; // Un ToggleGroup par question (16 au total)
 
+    [Header("Sauvegarde")]
+    public string fileName = "SSQForm_Default";
+
     private int currentPage = 0;
 
     void Start()
@@ -63,7 +66,7 @@ public class SSQFormController : MonoBehaviour
         }
 
         string json = JsonUtility.ToJson(new QuestionDataWrapper(results), true);
-        string path = Path.Combine(Application.persistentDataPath, "ssq_formulaire.json");
+        string path = Path.Combine(Application.persistentDataPath, fileName + ".json");
         File.WriteAllText(path, json);
         Debug.Log("Réponses enregistrées dans : " + path);
 
