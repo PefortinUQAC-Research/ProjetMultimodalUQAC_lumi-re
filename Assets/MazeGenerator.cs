@@ -34,13 +34,37 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField]
     private GameObject endCubePrefab; // Préfabriqué pour le cube de fin
 
+    [SerializeField]
+    private int _seed = 0; // Seed pour la génération du labyrinthe (0 = seed aléatoire)
+
+    [SerializeField]
+    private string _seedSaverTag = "SeedSaver"; // Tag du GameObject qui sauvegarde la seed
+
     private MazeCell[,] _mazeGrid; // Grille contenant les cellules du labyrinthe
+    private System.Random _random; // Générateur de nombres aléatoires avec seed
 
     /// <summary>
     /// Initialise la génération du labyrinthe et configure les cellules de départ et de fin.
     /// </summary>
     IEnumerator Start()
     {
+        // Vérifie s'il y a une seed sauvegardée dans un GameObject avec le tag spécifié
+        LoadSeedFromSaver();
+
+        // Initialise le générateur de nombres aléatoires avec la seed
+        if (_seed == 0)
+        {
+            _seed = System.Environment.TickCount; // Génère une seed aléatoire basée sur l'heure système
+        }
+        
+        _random = new System.Random(_seed);
+        Random.InitState(_seed); // Initialise aussi le Random de Unity avec la même seed
+
+        Debug.Log($"Génération du labyrinthe avec la seed: {_seed}");
+
+        // Sauvegarde la seed utilisée
+        SaveSeedToSaver(_seed);
+
         _mazeGrid = new MazeCell[_mazeWidth, _mazeDepth];
 
         for (int x = 0; x < _mazeWidth; x++)
@@ -133,7 +157,8 @@ public class MazeGenerator : MonoBehaviour
         if (unvisitedCells.Count == 0)
             return null;
 
-        return unvisitedCells.OrderBy(_ => Random.Range(0, 100)).First();
+        // Utilise le générateur de nombres aléatoires avec seed pour un comportement déterministe
+        return unvisitedCells.OrderBy(_ => _random.Next(0, 100)).First();
     }
 
     /// <summary>
@@ -266,5 +291,53 @@ public class MazeGenerator : MonoBehaviour
             neighbors.Add(_mazeGrid[x, z - 1]);
 
         return neighbors;
+    }
+
+    /// <summary>
+    /// Charge la seed depuis un GameObject avec le tag spécifié.
+    /// </summary>
+    private void LoadSeedFromSaver()
+    {
+        GameObject seedSaver = GameObject.FindGameObjectWithTag(_seedSaverTag);
+        if (seedSaver != null)
+        {
+            SeedSaver seedSaverComponent = seedSaver.GetComponent<SeedSaver>();
+            if (seedSaverComponent != null)
+            {
+                int savedSeed = seedSaverComponent.GetSavedSeed();
+                if (savedSeed != 0)
+                {
+                    _seed = savedSeed;
+                    Debug.Log($"Seed chargée depuis SeedSaver: {_seed}");
+                    return;
+                }
+            }
+        }
+        Debug.Log("Aucune seed sauvegardée trouvée, utilisation de la seed par défaut ou génération aléatoire.");
+    }
+
+    /// <summary>
+    /// Sauvegarde la seed dans un GameObject avec le tag spécifié.
+    /// </summary>
+    private void SaveSeedToSaver(int seedToSave)
+    {
+        GameObject seedSaver = GameObject.FindGameObjectWithTag(_seedSaverTag);
+        if (seedSaver != null)
+        {
+            SeedSaver seedSaverComponent = seedSaver.GetComponent<SeedSaver>();
+            if (seedSaverComponent != null)
+            {
+                seedSaverComponent.SaveSeed(seedToSave);
+                Debug.Log($"Seed sauvegardée dans SeedSaver: {seedToSave}");
+            }
+            else
+            {
+                Debug.LogWarning($"GameObject avec tag '{_seedSaverTag}' trouvé mais sans composant SeedSaver.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning($"Aucun GameObject avec tag '{_seedSaverTag}' trouvé pour sauvegarder la seed.");
+        }
     }
 }

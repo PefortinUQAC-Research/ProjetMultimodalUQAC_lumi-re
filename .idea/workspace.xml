@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="">
+    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="Ajout des buzzer dans le Maze + Tp sur le submit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +77,7 @@
       <workItem from="1751470554762" duration="330000" />
       <workItem from="1752512351465" duration="1617000" />
       <workItem from="1752862950308" duration="970000" />
+      <workItem from="1753462533235" duration="361000" />
     </task>
     <task id="LOCAL-00001" summary="add script changer on the main camera">
       <option name="closed" value="true" />
@@ -113,16 +111,40 @@
       <option name="project" value="LOCAL" />
       <updated>1753123008843</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ajout des buzzer dans le Maze + Tp sur le submit">
+      <option name="closed" value="true" />
+      <created>1753462714085</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1753462714085</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1f836777-f9a1-4b31-bbf1-bc79ce1e7deb" value="TOOL_WINDOW" />
+        <entry key="c891e91b-51e6-4f69-a574-8366b86f6928" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="1f836777-f9a1-4b31-bbf1-bc79ce1e7deb">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="c891e91b-51e6-4f69-a574-8366b86f6928">
           <value>
             <State />
           </value>
@@ -135,6 +157,7 @@
     <MESSAGE value="add script changer for vr headset movement" />
     <MESSAGE value="Code buzzer + jecrase les modifs de andrew pour copier coller apres" />
     <MESSAGE value="update ui interraction" />
-    <option name="LAST_COMMIT_MESSAGE" value="update ui interraction" />
+    <MESSAGE value="Ajout des buzzer dans le Maze + Tp sur le submit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout des buzzer dans le Maze + Tp sur le submit" />
   </component>
 </project>
