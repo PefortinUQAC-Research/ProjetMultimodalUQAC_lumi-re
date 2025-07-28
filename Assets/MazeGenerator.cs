@@ -97,18 +97,82 @@ public class MazeGenerator : MonoBehaviour
 
         startCell.SetCellType(MazeCell.CellType.Start);
         startCell.RemoveWall(MazeCell.Direction.Left);
-        SpawnCubeAboveCell(startCell, startCubePrefab);
+        
+        // Vérifier l'état du buzzer de départ avant de le faire apparaître
+        if (ShouldSpawnBuzzer("BuzzerStart"))
+        {
+            GameObject startCube = SpawnCubeAboveCell(startCell, startCubePrefab);
+            if (startCube != null)
+            {
+                startCube.tag = "BuzzerStart";
+            }
+        }
 
         endCell.SetCellType(MazeCell.CellType.End);
         endCell.RemoveWall(MazeCell.Direction.Right);
-        SpawnCubeAboveCell(endCell, endCubePrefab);
+        
+        // Vérifier l'état du buzzer de fin avant de le faire apparaître
+        if (ShouldSpawnBuzzer("BuzzerEnd"))
+        {
+            GameObject endCube = SpawnCubeAboveCell(endCell, endCubePrefab);
+            if (endCube != null)
+            {
+                endCube.tag = "BuzzerEnd";
+            }
+        }
 
         // Détermine le chemin principal et place un cube au milieu
         List<MazeCell> path = FindPath(startCell, endCell);
         if (path != null && path.Count > 2)
         {
             MazeCell middleCell = path[path.Count / 2];
-            SpawnCubeAboveCell(middleCell, middleCubePrefab);
+            
+            // Vérifier l'état du buzzer du milieu avant de le faire apparaître
+            if (ShouldSpawnBuzzer("BuzzerMid"))
+            {
+                GameObject middleCube = SpawnCubeAboveCell(middleCell, middleCubePrefab);
+                if (middleCube != null)
+                {
+                    middleCube.tag = "BuzzerMid";
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Vérifie si un buzzer doit être généré en consultant le BuzzerStateManager.
+    /// </summary>
+    private bool ShouldSpawnBuzzer(string buzzerTag)
+    {
+        GameObject buzzerManager = GameObject.FindWithTag("StepBuzzer");
+        if (buzzerManager != null)
+        {
+            BuzzerStateManager stateManager = buzzerManager.GetComponent<BuzzerStateManager>();
+            if (stateManager != null)
+            {
+                switch (buzzerTag)
+                {
+                    case "BuzzerStart":
+                        return stateManager.BuzzerStart;
+                    case "BuzzerMid":
+                        return stateManager.BuzzerMid;
+                    case "BuzzerEnd":
+                        return stateManager.BuzzerEnd;
+                    default:
+                        Debug.LogWarning($"Tag de buzzer non reconnu: {buzzerTag}");
+                        return true; // Par défaut, on génère le buzzer
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Composant BuzzerStateManager non trouvé sur l'objet avec le tag 'StepBuzzer'");
+                return true; // Par défaut, on génère le buzzer
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Aucun GameObject avec le tag 'StepBuzzer' trouvé");
+            return true; // Par défaut, on génère le buzzer
         }
     }
 
@@ -121,7 +185,7 @@ public class MazeGenerator : MonoBehaviour
             return null;
 
         // Gère le spawn XYZ
-        Vector3 spawnPosition = cell.transform.position + new Vector3(0, 0.5f, 0); // 1.5 unités au-dessus de la cellule
+        Vector3 spawnPosition = cell.transform.position + new Vector3(0, 1.0f, 0); // 1.5 unités au-dessus de la cellule
         GameObject cube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
         
         return cube;

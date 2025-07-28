@@ -19,7 +19,33 @@ public class VRTeleporter : MonoBehaviour
         {
             Debug.Log("Manette VR détectée dans le cube - Téléportation en cours...");
             SavePlayerPosition();
+            DisableBuzzerInManager(); // Nouvelle fonction pour désactiver le buzzer
             StartCoroutine(TeleportWithDelay());
+        }
+    }
+    
+    private void DisableBuzzerInManager()
+    {
+        // Trouver le BuzzerStateManager
+        GameObject buzzerManager = GameObject.FindWithTag("StepBuzzer");
+        if (buzzerManager != null)
+        {
+            BuzzerStateManager stateManager = buzzerManager.GetComponent<BuzzerStateManager>();
+            if (stateManager != null)
+            {
+                // Récupérer le tag de ce buzzer et le désactiver dans le manager
+                string buzzerTag = gameObject.tag;
+                stateManager.DisableBuzzer(buzzerTag);
+                Debug.Log($"Buzzer avec le tag '{buzzerTag}' désactivé dans le manager");
+            }
+            else
+            {
+                Debug.LogWarning("Composant BuzzerStateManager non trouvé sur l'objet avec le tag 'StepBuzzer'");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Aucun GameObject avec le tag 'StepBuzzer' trouvé");
         }
     }
     

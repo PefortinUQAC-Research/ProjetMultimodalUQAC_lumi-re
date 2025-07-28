@@ -7,6 +7,10 @@ TagManager:
   - Anchor
   - Controller
   - SeedSaver
+  - StepBuzzer
+  - BuzzerStart
+  - BuzzerMid
+  - BuzzerEnd
   layers:
   - Default
   - TransparentFX
