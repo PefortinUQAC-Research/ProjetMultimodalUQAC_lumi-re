@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="Systeme de retour TP fonctionnel + Maze ok et teste par Pascal" />
+    <list default="true" id="02c06e96-b63e-4ff2-8d01-95508352b380" name="Changes" comment="Desactivation des buzzers une fois le questionnaires repondu" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +77,7 @@
       <workItem from="1752862950308" duration="970000" />
       <workItem from="1753462533235" duration="361000" />
       <workItem from="1753472573456" duration="105000" />
+      <workItem from="1753720644470" duration="1481000" />
     </task>
     <task id="LOCAL-00001" summary="add script changer on the main camera">
       <option name="closed" value="true" />
@@ -126,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753472657403</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Desactivation des buzzers une fois le questionnaires repondu">
+      <option name="closed" value="true" />
+      <created>1753720690221</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1753720690221</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +175,7 @@
     <MESSAGE value="update ui interraction" />
     <MESSAGE value="Ajout des buzzer dans le Maze + Tp sur le submit" />
     <MESSAGE value="Systeme de retour TP fonctionnel + Maze ok et teste par Pascal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Systeme de retour TP fonctionnel + Maze ok et teste par Pascal" />
+    <MESSAGE value="Desactivation des buzzers une fois le questionnaires repondu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Desactivation des buzzers une fois le questionnaires repondu" />
   </component>
 </project>

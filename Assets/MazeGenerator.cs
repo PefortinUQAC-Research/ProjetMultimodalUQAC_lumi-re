@@ -185,7 +185,7 @@ public class MazeGenerator : MonoBehaviour
             return null;
 
         // Gère le spawn XYZ
-        Vector3 spawnPosition = cell.transform.position + new Vector3(0, 1.0f, 0); // 1.5 unités au-dessus de la cellule
+        Vector3 spawnPosition = cell.transform.position + new Vector3(0, 0.0f, 0); // 1.5 unités au-dessus de la cellule
         GameObject cube = Instantiate(cubePrefab, spawnPosition, Quaternion.identity);
         
         return cube;
