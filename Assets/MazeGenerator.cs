@@ -40,6 +40,10 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField]
     private string _seedSaverTag = "SeedSaver"; // Tag du GameObject qui sauvegarde la seed
 
+    [Header("Marqueur du milieu")]
+    [SerializeField]
+    private string _circleMidTag = "CircleMid"; // Tag du GameObject cercle du milieu à positionner
+
     private MazeCell[,] _mazeGrid; // Grille contenant les cellules du labyrinthe
     private System.Random _random; // Générateur de nombres aléatoires avec seed
 
@@ -136,6 +140,32 @@ public class MazeGenerator : MonoBehaviour
                     middleCube.tag = "BuzzerMid";
                 }
             }
+
+            // NOUVEAU : Positionner le CircleMid dans tous les cas (buzzer affiché ou pas)
+            PositionCircleMid(middleCell);
+        }
+    }
+
+    /// <summary>
+    /// Positionne le GameObject avec le tag "CircleMid" à l'emplacement de la cellule du milieu
+    /// </summary>
+    private void PositionCircleMid(MazeCell middleCell)
+    {
+        GameObject circleMid = GameObject.FindGameObjectWithTag(_circleMidTag);
+        if (circleMid != null)
+        {
+            // Positionner le cercle à la même position X et Z que la cellule du milieu
+            Vector3 newPosition = middleCell.transform.position;
+            // Garder la Y actuelle du CircleMid (au cas où elle serait configurée différemment)
+            newPosition.y = circleMid.transform.position.y;
+            
+            circleMid.transform.position = newPosition;
+            
+            Debug.Log($"CircleMid positionné à la cellule du milieu : {newPosition}");
+        }
+        else
+        {
+            Debug.LogWarning($"Aucun GameObject avec le tag '{_circleMidTag}' trouvé pour le positionnement.");
         }
     }
 

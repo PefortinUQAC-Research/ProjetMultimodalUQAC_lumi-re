@@ -11,6 +11,7 @@ TagManager:
   - BuzzerStart
   - BuzzerMid
   - BuzzerEnd
+  - CircleMid
   layers:
   - Default
   - TransparentFX
