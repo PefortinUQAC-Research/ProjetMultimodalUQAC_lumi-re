@@ -1,5 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class SubmitSceneTeleporter : MonoBehaviour
 {
@@ -7,11 +11,36 @@ public class SubmitSceneTeleporter : MonoBehaviour
     public string targetSceneName = "MaSceneSuivante";
     public Vector3 fallbackPosition = new Vector3(0, 1.5f, 0); // Position de secours si aucune position n'est sauvegardée
 
+    [Header("Fondu")]
+    public Volume globalVolume;
+    public float fadeDuration = 1.0f;
+
+    private IEnumerator FadeAndTeleport()
+    {
+        if (globalVolume != null && globalVolume.profile.TryGet<ColorAdjustments>(out var colorAdjustments))
+        {
+            colorAdjustments.colorFilter.overrideState = true;
+
+            float t = 0f;
+            while (t < fadeDuration)
+            {
+                t += Time.deltaTime;
+                float lerp = t / fadeDuration;
+                colorAdjustments.colorFilter.value = new Color(1f - lerp, 1f - lerp, 1f - lerp, 1f);
+                yield return null;
+            }
+
+            colorAdjustments.colorFilter.value = Color.black;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(targetSceneName);
+    }
+
     // Appelée par le bouton Submit (via OnClick)
     public void TeleportToScene()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(targetSceneName);
+        StartCoroutine(FadeAndTeleport());
     }
 
     // Appelé automatiquement une fois la nouvelle scène chargée
@@ -114,4 +143,5 @@ public class SubmitSceneTeleporter : MonoBehaviour
         Debug.Log("Utilisation de la rotation par défaut (identity)");
         return Quaternion.identity;
     }
+
 }

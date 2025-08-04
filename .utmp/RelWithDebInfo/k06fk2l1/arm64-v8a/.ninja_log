@@ -1,11 +1,11 @@
 # ninja log v5
-16	701	7754176172150831	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1c97cabfdc76e97a
-5	733	7754176172481678	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4589931f7d02c8e9
-21	773	7754176172881552	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a3cdd6596e09642f
-8	733	7754176172481678	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	73e56c06fa7a48cf
-13	817	7754176173333801	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9987e183689d18e2
-10	785	7754176173012486	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	ff8d3563faa6f30
-18	895	7754176174101129	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	2e3bb5555aa4000
-2	977	7754176174924576	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e7f705ba329d399e
-977	1300	7754176178203370	C:/Users/bberretta/Documents/Projet Unity2/33/ProjetMultimodalUQAC_lumi-re/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/k06fk2l1/obj/arm64-v8a/libgame.so	d4c8df22596f936e
-6	449	7754189217983885	build.ninja	258507a7fd974c9a
+10	723	7760294202340770	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	1c97cabfdc76e97a
+5	713	7760294202280770	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4589931f7d02c8e9
+22	803	7760294203180794	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	a3cdd6596e09642f
+19	739	7760294202550776	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	73e56c06fa7a48cf
+8	806	7760294203220769	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	9987e183689d18e2
+13	791	7760294203060772	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	ff8d3563faa6f30
+16	916	7760294204329829	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	2e3bb5555aa4000
+1	994	7760294205101437	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	e7f705ba329d399e
+994	1137	7760294206553372	C:/Users/bberretta/Documents/Projet Unity2/33/ProjetMultimodalUQAC_lumi-re/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/k06fk2l1/obj/arm64-v8a/libgame.so	d4c8df22596f936e
+5	432	7760296200975102	build.ninja	258507a7fd974c9a

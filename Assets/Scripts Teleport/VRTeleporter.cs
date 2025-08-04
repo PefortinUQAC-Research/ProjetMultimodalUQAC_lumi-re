@@ -1,12 +1,20 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 
 public class VRTeleporter : MonoBehaviour
 {
     [Header("Configuration")]
     public string targetSceneName = "BlackScene";
     public float teleportDelay = 0.5f; // Délai avant téléportation (optionnel)
+
+    [Header("Fondu")]
+    public Volume globalVolume;
+    public float fadeDuration = 1.0f;
+
     
 
     
@@ -134,11 +142,28 @@ public class VRTeleporter : MonoBehaviour
     private IEnumerator TeleportWithDelay()
     {
         hasTeleported = true;
-        
-        // Attendre le délai spécifié
+
+        if (globalVolume != null && globalVolume.profile.TryGet<ColorAdjustments>(out var colorAdjustments))
+        {
+            colorAdjustments.colorFilter.overrideState = true;
+
+            float t = 0f;
+            while (t < fadeDuration)
+            {
+                t += Time.deltaTime;
+                float lerpValue = 1f - (t / fadeDuration);  // de 1 à 0
+
+                // Couleur du filtre : blanc à noir en RGB
+                colorAdjustments.colorFilter.value = new Color(lerpValue, lerpValue, lerpValue, 1f);
+                yield return null;
+            }
+
+            // Assure noir complet à la fin
+            colorAdjustments.colorFilter.value = Color.black;
+        }
+
         yield return new WaitForSeconds(teleportDelay);
-        
-        // Charger la nouvelle scène
+
         SceneManager.LoadScene(targetSceneName);
     }
     
@@ -147,4 +172,19 @@ public class VRTeleporter : MonoBehaviour
     {
         hasTeleported = false;
     }
+
+    private void Start()
+    {
+        if (globalVolume == null)
+        {
+            globalVolume = FindFirstObjectByType<Volume>();
+            if (globalVolume == null)
+            {
+                Debug.LogWarning("Aucun Global Volume trouvé dans la scène.");
+            } else {
+                Debug.Log("Global Volume trouvé dans la scène.");
+            }
+        }
+    }
+
 }

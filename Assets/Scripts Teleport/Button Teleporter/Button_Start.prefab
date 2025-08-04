@@ -69,6 +69,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: FormScene_Start
   teleportDelay: 0.5
+  globalVolume: {fileID: 0}
+  fadeDuration: 1
 --- !u!1001 &8914263461097624887
 PrefabInstance:
   m_ObjectHideFlags: 0
