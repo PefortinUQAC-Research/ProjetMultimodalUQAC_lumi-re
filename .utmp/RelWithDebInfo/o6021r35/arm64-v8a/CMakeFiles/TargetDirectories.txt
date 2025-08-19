@@ -1,0 +1,5 @@
+C:/Users/ahiver/Desktop/Workspace/DMX/ProjetMultimodalUQAC_lumi-re/.utmp/RelWithDebInfo/o6021r35/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/ahiver/Desktop/Workspace/DMX/ProjetMultimodalUQAC_lumi-re/.utmp/RelWithDebInfo/o6021r35/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/ahiver/Desktop/Workspace/DMX/ProjetMultimodalUQAC_lumi-re/.utmp/RelWithDebInfo/o6021r35/arm64-v8a/GameActivity/CMakeFiles/game.dir
+C:/Users/ahiver/Desktop/Workspace/DMX/ProjetMultimodalUQAC_lumi-re/.utmp/RelWithDebInfo/o6021r35/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+C:/Users/ahiver/Desktop/Workspace/DMX/ProjetMultimodalUQAC_lumi-re/.utmp/RelWithDebInfo/o6021r35/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
