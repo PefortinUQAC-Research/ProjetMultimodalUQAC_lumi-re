@@ -13893,6 +13893,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSceneName: BasicScene
   fallbackPosition: {x: -20, y: 1.5, z: 0}
+  isLastForm: 1
+  mazeStartPosition: {x: -3, y: 0, z: 0}
   globalVolume: {fileID: 1483636623}
   fadeDuration: 1
 --- !u!1 &931811896

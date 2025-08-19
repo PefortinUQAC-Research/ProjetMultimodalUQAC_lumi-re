@@ -101,7 +101,7 @@ public class BuzzerStateManager : MonoBehaviour
                 BuzzerEnd = true;
                 break;
         }
-        ApplyBuzzerStates(); // Appliquer immédiatement les changements
+        ApplyBuzzerStates();
     }
     
     // Méthode pour réinitialiser tous les buzzers
