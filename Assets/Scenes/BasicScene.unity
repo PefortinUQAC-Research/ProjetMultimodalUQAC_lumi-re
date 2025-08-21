@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 183359853}
   m_Layer: 0
   m_Name: ScenarioManager
-  m_TagString: Untagged
+  m_TagString: StepScenario
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,7 @@ MonoBehaviour:
   neutralTemperature: 0
   warmTemperature: 100
   coldTemperature: -100
+  currentScenarioIndex: 0
 --- !u!1 &195389499
 GameObject:
   m_ObjectHideFlags: 0

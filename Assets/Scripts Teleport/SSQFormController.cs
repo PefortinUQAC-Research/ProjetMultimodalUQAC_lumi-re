@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using System.Collections.Generic;
+using System;
 
 public class SSQFormController : MonoBehaviour
 {
@@ -65,12 +66,52 @@ public class SSQFormController : MonoBehaviour
             }
         }
 
+        // Récupérer le scénario courant et la date/heure
+        string scenarioText = GetCurrentScenarioText();
+        string dateTime = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        
+        // Construire le nom de fichier final
+        string finalFileName = $"{fileName}_{scenarioText}_{dateTime}";
+
         string json = JsonUtility.ToJson(new QuestionDataWrapper(results), true);
-        string path = Path.Combine(Application.persistentDataPath, fileName + ".json");
+        string path = Path.Combine(Application.persistentDataPath, finalFileName + ".json");
         File.WriteAllText(path, json);
         Debug.Log("Réponses enregistrées dans : " + path);
 
         formCanvas.SetActive(false);
+    }
+
+    private string GetCurrentScenarioText()
+    {
+        // Chercher le GameObject avec le tag "StepScenario"
+        GameObject stepScenarioObject = GameObject.FindGameObjectWithTag("StepScenario");
+        
+        if (stepScenarioObject != null)
+        {
+            ScenarioManager scenarioManager = stepScenarioObject.GetComponent<ScenarioManager>();
+            if (scenarioManager != null)
+            {
+                int currentScenario = scenarioManager.CurrentScenarioIndex;
+                
+                switch (currentScenario)
+                {
+                    case 0: return "Neutral";
+                    case 1: return "Warm";
+                    case 2: return "Cold";
+                    default: return "Unknown";
+                }
+            }
+            else
+            {
+                Debug.LogWarning("ScenarioManager non trouvé sur le GameObject avec le tag 'StepScenario'");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Aucun GameObject trouvé avec le tag 'StepScenario'");
+        }
+        
+        return "NoScenario";
     }
 
     Toggle GetActiveToggle(ToggleGroup group)

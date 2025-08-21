@@ -12,6 +12,7 @@ TagManager:
   - BuzzerMid
   - BuzzerEnd
   - CircleMid
+  - StepScenario
   layers:
   - Default
   - TransparentFX

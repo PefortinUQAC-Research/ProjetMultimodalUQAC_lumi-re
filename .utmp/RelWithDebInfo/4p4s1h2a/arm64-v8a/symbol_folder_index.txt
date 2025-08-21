@@ -1,0 +1,1 @@
+C:\Users\bberretta\Documents\Projet Unity\ProjetMultimodalUQAC_lumi-re\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\build\intermediates\cxx\RelWithDebInfo\4p4s1h2a\obj\arm64-v8a

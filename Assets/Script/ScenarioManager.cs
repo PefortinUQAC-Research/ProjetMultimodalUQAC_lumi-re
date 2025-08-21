@@ -14,9 +14,15 @@ public class ScenarioManager : MonoBehaviour
     public float warmTemperature = 60f;
     public float coldTemperature = -60f;
 
+    [Header("Current Scenario Info")]
+    [SerializeField] private int currentScenarioIndex = 0; // 0=Neutral, 1=Warm, 2=Cold
+
     private Queue<TempScenario> queue = new Queue<TempScenario>();
     private TempScenario? current = null;
     private bool hasAppliedOnce = false;
+
+    // Propriété publique pour accéder au scénario courant depuis d'autres scripts
+    public int CurrentScenarioIndex => currentScenarioIndex;
 
     void Awake()
     {
@@ -52,6 +58,8 @@ public class ScenarioManager : MonoBehaviour
         if (queue.Count == 0) RefillQueueShuffled();
         var s = queue.Dequeue();
         current = s;
+        // Mettre à jour l'index du scénario courant
+        currentScenarioIndex = (int)s;
         return s;
     }
 
@@ -87,7 +95,7 @@ public class ScenarioManager : MonoBehaviour
         return;
     }
 
-    // Activer l’override sur le paramètre (pas sur le composant)
+    // Activer l'override sur le paramètre (pas sur le composant)
     wb.active = true;                          // facultatif mais utile
     wb.temperature.overrideState = true;
 
@@ -96,9 +104,12 @@ public class ScenarioManager : MonoBehaviour
         s == TempScenario.Warm    ? warmTemperature    :
                                     coldTemperature;
 
-    // (Optionnel) s’assurer que le tint ne dérive pas
+    // (Optionnel) s'assurer que le tint ne dérive pas
     wb.tint.overrideState = true;
     wb.tint.value = 0f;
+
+    // Mettre à jour l'index du scénario courant lors de l'application
+    currentScenarioIndex = (int)s;
 
     Debug.Log($"[ScenarioManager] Scénario appliqué: {s}");
 }
