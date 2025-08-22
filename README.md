@@ -105,6 +105,7 @@ Au fil des itérations, de nombreuses fonctionnalités ont été ajoutées afin 
 - **Victor Vieux-Melchior** – Développeur initial  
 - **Baptiste BERRETTA** – Développeur stagiaire Mitacs  
 - **Andrew HIVER** – Développeur stagiaire
+
 Sous la supervision de **Pascal E. Fortin** dans le cadre d'une étude de recherche sur le cybermalaise en réalité virtuelle pour [l'UQAC](https://www.uqac.ca/)   
 
 ## Remarques
